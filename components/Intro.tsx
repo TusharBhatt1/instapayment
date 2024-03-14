@@ -13,7 +13,7 @@ export default function Intro() {
     },[])
     if(isOpen){
         return (
-            <div className="flex justify-center h-[100vh] absolute bg-black z-50 w-[99.2vw] ">
+            <div className="flex justify-center h-[100vh] absolute bg-black z-200 w-[99.2vw] ">
               <div>
                 <Lottie animationData={animation} />
               </div>
