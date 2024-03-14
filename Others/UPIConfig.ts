@@ -4,9 +4,13 @@ export const UPIConfig = [
       label: "Holder Name",
       placeholder: "Enter Holder Name",
       type: "text",
-      onValidate:(e:string)=>{
-        if(e && e?.length>5) return true 
-        return false
+      onValidate: (e: string) => {
+        const regex = /^[a-zA-Z]+$/;
+        if (e && e.length >= 5) {
+          return regex.test(e);
+        }
+      
+        return false;
       },
       errorMessage:'Invalid holderName',
 
