@@ -36,7 +36,8 @@ const Input: React.FC<InputProps> = ({
         {label}
       </label>
       <input
-        className="border-blue-400 border-b-2 mt-1 p-2 w-full rounded-md focus:border-2 focus:border-blue-100"
+       autoFocus
+        className="border-blue-400 border-b-2 mt-1 p-2 w-full rounded-md focus:outline-none "
         type={type || "text"}
         placeholder={placeholder}
         onChange={onChange}
