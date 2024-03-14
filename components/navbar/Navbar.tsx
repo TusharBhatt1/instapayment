@@ -36,8 +36,8 @@ export default function Navbar({
   //   <p>navbar</p>
   // )
   return (
-    <div className="flex flex-col gap-2  ">
-      <div className="fixed w-full bg-white flex justify-between sm:justify-around items-center p-4 border-b border-slate-100">
+    <div className="flex flex-col gap-2 z-50 ">
+      <div className="fixed w-full bg-white flex justify-between sm:justify-around items-center p-4 border-b z-50 border-slate-100">
         <div>
           <Link href={"/"}>
             <Image priority src={logo} height={40} width={40} alt="logo" />
