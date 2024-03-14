@@ -28,14 +28,14 @@ export default function ProductCard({ product }: { product: ProductType }) {
           />
         </Link>
       </div>
-      <div className="grid grid-rows-2 gap-1pa items-start justify-start">
+      <div className="grid grid-rows-2 gap-1 items-start justify-start">
         <p className="text-xs text-slate-400 mt-1">
           {title.split(" ").slice(0, 4).join(" ")}
         </p>
         <div className="flex justify-between gap-4 items-center">
           <p>₹ {price}</p>
           <button
-            className="text-gray-700 text-sm border rounded-lg p-1 duration-150 hover:bg-gray-100"
+            className="text-blue-500 text-xs border rounded-lg p-2 duration-150 hover:bg-gray-100"
             onClick={() => handleAddToWishlist(product)}
           >
             Wishlist

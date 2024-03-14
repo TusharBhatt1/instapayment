@@ -201,7 +201,7 @@ export default function WishlistModal() {
 
   if (step === STEPS.confirmation) {
     bodyContent = (
-      <div>
+      <div className="p-2">
         <p className=" mb-2 text-center font-bold">
           <span className="text-slate-500 text-xs">Name :</span>{" "}
           {currentWishList.listName}

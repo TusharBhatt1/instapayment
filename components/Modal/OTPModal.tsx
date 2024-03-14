@@ -9,7 +9,7 @@ import PhoneValidation from "../otpVerification/PhoneValidation";
 import EnterOtp from "../otpVerification/EnterOtp";
 
 export default function OTPModal() {
-  const { onClose, isOpen } = useOTPModal();
+  const {isOpen,onClose } = useOTPModal();
   const { grandTotal } = useCartDetails();
   const [showEnterOTP,setShowEnterOTP]=useState(false)
   const [isValid , setIsValid]=useState(false)
@@ -42,7 +42,7 @@ export default function OTPModal() {
   );
 
   const footer=(
-    <div className="font-bold mt-7 text-xs flex justify-around items-center border-2 border-slate-100 py-4 rounded-lg">
+    <div className=" mt-7 text-xs flex justify-around items-center border border-slate-100 py-4 rounded-lg">
         <div>
         <p className="text-slate-400">Your Order is Protectd by</p>
         <p className="text-bold text-blue-600">Simpl Sure</p>

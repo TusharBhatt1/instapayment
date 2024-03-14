@@ -15,7 +15,7 @@ export default function page() {
   const {user}=useUserDetails()
   const [expandOrder, setExpandOrder]=useState(false)
   const {cart,grandTotal}=useCartDetails()
- 
+
   return (
     <div>
       {/* main */}

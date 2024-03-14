@@ -21,11 +21,10 @@ const EnterOtp = ({ onClose }: { onClose: () => void }) => {
     if (isNaN(value)) return;
 
     const newOtp = [...otp];
-    // allow only one input
+  
     newOtp[index] = value.substring(value.length - 1);
     setOtp(newOtp);
 
-    // submit trigger
     const combinedOtp = newOtp.join("");
     if (combinedOtp.length === length) {
       setTimeout(() => router.push("/userdetails"), 2000);
@@ -33,7 +32,6 @@ const EnterOtp = ({ onClose }: { onClose: () => void }) => {
       toast.success("OTP Verified");
     }
 
-    // Move to next input if current field is filled
     if (value && index < length - 1 && inputRefs.current[index + 1]) {
       inputRefs.current[index + 1].focus();
     }
@@ -55,7 +53,7 @@ const EnterOtp = ({ onClose }: { onClose: () => void }) => {
       index > 0 &&
       inputRefs.current[index - 1]
     ) {
-      // Move focus to the previous input field on backspace
+      
       inputRefs.current[index - 1].focus();
     }
   };

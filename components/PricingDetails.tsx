@@ -84,19 +84,19 @@ export default function PricingDetails({
         </span>
         <div className="flex items-center justify-start gap-2">
           <button
-            className={`${donation === 10 && "button bg-blue-500 text-white"}`}
+            className={`${donation === 10 && "bg-blue-500 text-white"} button`}
             onClick={() => setDonation(10)}
           >
             ₹10
           </button>
           <button
-            className={`${donation === 50 && "button bg-blue-500 text-white"}`}
+            className={`${donation === 50 && "bg-blue-500 text-white"} button`}
             onClick={() => setDonation(50)}
           >
             ₹50
           </button>
           <button
-            className={`${donation === 100 && "button bg-blue-500 text-white"}`}
+            className={`${donation === 100 && "bg-blue-500 text-white"} button`}
             onClick={() => setDonation(100)}
           >
             ₹100

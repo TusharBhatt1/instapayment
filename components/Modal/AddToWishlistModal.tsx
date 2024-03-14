@@ -54,7 +54,7 @@ export default function AddToWishlistModal() {
         <p className="text-slate-500 text-sm mb-2">In which one you want to add ?</p>
         {wishlist.all_wishlists.map((wishlist) => (
           <li
-            className="text-bold bg-slate-100 hover:bg-green-300 px-1 rounded-md cursor-pointer"
+            className="text-bold bg-slate-100 hover:bg-green-300 p-1 rounded-md cursor-pointer"
             onClick={() => addToExisting(wishlist.listName)}
             key={wishlist.listName}
           >

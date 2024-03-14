@@ -10,14 +10,14 @@ export default function CartItem({ product }: { product: ProductType }) {
   const { id, title, image, price,quantity } = product;
   const { onRemoveItem } = useCartDetails();
   return (
-    <div className="flex justify-between items-start w-full p-4 rounded-md border-b border-slate-200">
+    <div className="flex justify-between items-start w-full p-2 rounded-md border-b border-slate-200">
       <div>
-        <div className="flex justify-center items-center gap-4">
+        <div className="flex justify-center items-center gap-3">
           <div>
             <Image src={image} alt={title} height={40} width={40} />
           </div>
           <div className="flex flex-col gap-2 md:gap-4">
-            <span>{title}</span>
+            <span> {title.split(" ").slice(0, 4).join(" ")}</span>
             <div className="flex gap-4 text-center">
               <span className="bg-slate-100 rounded-xl p-1 px-2">Qty:<span className="font-bold">{" "}1</span></span>
               <span className="bg-slate-100 rounded-xl p-1 px-2">Size:<span className="font-bold">{" "}Free</span></span>

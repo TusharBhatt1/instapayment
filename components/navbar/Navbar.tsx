@@ -11,6 +11,7 @@ import useCartDetails from "@/hooks/useCartDetails";
 import { ProductType } from "@/@types";
 import { IoSearch } from "react-icons/io5";
 import useAllProducts from "@/hooks/useAllProducts";
+import Searchbar from "./Searchbar";
 export default function Navbar({
   randomCart,
   allProductss,
@@ -24,7 +25,6 @@ export default function Navbar({
   useEffect(() => {
     addRandomCart(randomCart);
     setAllProducts(allProductss.slice(0,8))
-    console.log(allProductss)
   
   }, []);
   const cartModal = useCartModal();
@@ -45,22 +45,12 @@ export default function Navbar({
         </div>
         <div className="hidden md:flex justify-center items-center gap-7">
           {categories.map((ctg) => (
-            <span className="hover:border-b border-black cursor-pointer p-1">
+            <span key={ctg} className="hover:border-b border-black cursor-pointer p-1">
               {ctg}
             </span>
           ))}
         </div>
-        <div className="hidden sm:block">
-          <div className="absolute">
-            <span className="absolute  top-4 left-5  text-slate-500">
-              <IoSearch />
-            </span>
-          </div>
-          <input
-            className="w-[32vw] p-3 px-10 shadow-md rounded-full "
-            placeholder="What are you looking for ?"
-          />
-        </div>
+        <Searchbar/>
         <div className="flex justify-center items-center gap-7">
           <Link href={"/wishlist"}>
             <CiHeart size={28} />
