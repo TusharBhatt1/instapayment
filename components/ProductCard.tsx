@@ -18,7 +18,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
   return (
     <div className="flex flex-col flex-wrap justify-between mt-4 rounded-md p-1 ">
       <div className=" flex flex-wrap justify-between">
-        <Link href={`/product/${id}`}>
+        <Link href={`/product/${id}`} className="hover:transform hover:scale-125 transition duration-300 ease-in-out">
           <Image
             className="img"
             src={image}
@@ -43,7 +43,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
         </div>
         <div className="flex items-center gap-3 mt-3">
           {sizes.map((s, i) => (
-            <span className="border border-black p-1 w-10  text-center" key={i}>
+            <span className="border border-black p-1 w-10  text-center rounded-md" key={i}>
               {s}
             </span>
           ))}
