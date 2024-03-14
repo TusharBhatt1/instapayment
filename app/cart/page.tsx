@@ -1,6 +1,6 @@
 "use client";
 import Empty from "@/Others/Empty";
-import CartItem from "@/components/Card/CartItem";
+import Heading from "@/components/Heading";
 import OrderList from "@/components/OrderList";
 import PricingDetails from "@/components/PricingDetails";
 import useCartDetails from "@/hooks/useCartDetails";
@@ -24,15 +24,20 @@ export default function page() {
       </div>
     );
   return (
-    <div className="flex flex-col sm:flex-row justify-between border border-slate-100 py-7 px-8 md:px-32 gap-12">
+    <div>
+      <Heading
+      title="Cart"
+      />
+    <div className="flex flex-col sm:flex-row justify-between  py-7 px-8 md:px-32 gap-12">
      <OrderList cart={cart}/>
      
       <PricingDetails
         onOpen={onOpen}
         cartLength={cart.length}
-        cartPrice={subtotal}
+        cartPrice={Math.round(subtotal)}
         setGrandtotal={setGrandtotal}
       />
+    </div>
     </div>
     
   );

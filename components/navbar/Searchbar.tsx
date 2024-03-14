@@ -104,23 +104,3 @@ export default function SearchBar() {
   );
 }
 
-// import React, { useState } from 'react'
-// import { IoSearch } from 'react-icons/io5'
-
-// export default function Searchbar() {
-
-//     const [showResult , setShowResult]=useState(false)
-//   return (
-//     <div className="hidden sm:block">
-//     <div className="absolute">
-//       <span className="absolute  top-4 left-5  text-slate-500">
-//         <IoSearch />
-//       </span>
-//     </div>
-//     <input
-//       className="w-[32vw] p-3 px-10 shadow-md rounded-full "
-//       placeholder="What are you looking for ?"
-//     />
-//   </div>
-//   )
-// }

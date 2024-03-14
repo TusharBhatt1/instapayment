@@ -12,7 +12,7 @@ export default function page() {
       <WishlistPageSm/>
     </div>
 
-   <div className='hidden sm:flex'>
+   <div className='hidden sm:flex ml-12'>
    <Heading title='All Wishlists'/>
    <WishlistPageLg/>
    </div>

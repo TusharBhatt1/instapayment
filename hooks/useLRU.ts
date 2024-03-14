@@ -28,8 +28,8 @@ class LRUCache {
   getItem(key: string) {
     const cacheItemIndex = this.cache.findIndex((item) => item.key === key);
     if (cacheItemIndex !== -1) {
-      const cacheItem = this.cache.splice(cacheItemIndex, 1)[0]; // Remove the item from its current position
-      this.cache.unshift(cacheItem); // Move the item to the front
+      const cacheItem = this.cache.splice(cacheItemIndex, 1)[0]; // Remove the item
+      this.cache.unshift(cacheItem); // Move it to the front
       return cacheItem.value;
     }
     return undefined;

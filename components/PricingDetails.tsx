@@ -7,12 +7,12 @@ export default function PricingDetails({
   cartLength,
   cartPrice,
   setGrandtotal,
-  onOpen
+  onOpen,
 }: {
   cartLength: number;
   cartPrice: number;
-  setGrandtotal:(v:number)=>void,
-  onOpen:()=>void
+  setGrandtotal: (v: number) => void;
+  onOpen: () => void;
 }) {
   const [donation, setDonation] = useState(0);
   const [coupon, setCoupon] = useState(0);
@@ -36,14 +36,13 @@ export default function PricingDetails({
   ];
   const grandTotal = pricingDetails.reduce((a, b) => a + b.amount, 0);
 
- const router=useRouter()
+  const router = useRouter();
 
   return (
     <div className="w-full bg-slate-10  bg-slate-40 flex flex-col gap-4 p-1">
       <div className="border-b border-slate-100 text-slate-400">
         {/* Cart ready to take off 🚀 with ({cartLength}{" "} */}
-        Order Summary ({cartLength} {" "}
-        {`${cartLength > 1 ? "items" : "item"}`})
+        Order Summary ({cartLength} {`${cartLength > 1 ? "items" : "item"}`})
       </div>
       <div className="flex justify-between items-center">
         <div className="flex justify-center items-center gap-2">
@@ -53,13 +52,12 @@ export default function PricingDetails({
           <span>get upto ₹500 off on your first order </span>
         </div>
         <button
-        content="button"
+          content="button"
           onClick={() => {
             if (coupon === 0) {
-                toast.success("Coupon Applied")
-                setCoupon(- 500)
-            }
-            else setCoupon(0);
+              toast.success("Coupon Applied");
+              setCoupon(-50);
+            } else setCoupon(0);
           }}
           className={`${
             coupon !== 0 && "bg-blue-500 text-white"
@@ -114,7 +112,14 @@ export default function PricingDetails({
                 key={index}
               >
                 <span>{pr.label}</span>
-               {pr.label==="Shipping" ? <span className="flex justify-center items-center gap-2" ><span className="text-xs line-through">₹100</span><span className="text-green-500">FREE</span></span> : <span>₹ {pr.amount}</span>}
+                {pr.label === "Shipping" ? (
+                  <span className="flex justify-center items-center gap-2">
+                    <span className="text-xs line-through">₹100</span>
+                    <span className="text-green-500">FREE</span>
+                  </span>
+                ) : (
+                  <span>₹ {pr.amount}</span>
+                )}
               </div>
             ))}
           </div>
@@ -123,12 +128,13 @@ export default function PricingDetails({
             <span className=" text-blue-700">₹ {grandTotal}</span>
           </p>
           <div className="mt-4 flex justify-center items-center">
-            <Button label="Proceed" onClick={()=>{
-                setGrandtotal(grandTotal)
-                onOpen()
-
-                }} />
-           
+            <Button
+              label="Proceed"
+              onClick={() => {
+                setGrandtotal(grandTotal);
+                onOpen();
+              }}
+            />
           </div>
         </div>
       </div>

@@ -16,12 +16,12 @@ export default function OTPModal() {
 
 
   const body = (
-    <div className="bg-slate-50 flex flex-col gap-4 text-md p-2">
+    <div className="bg-slate-50 flex flex-col gap-4 text-md p-4">
       <div className="flex font-bold text-lg justify-between items-center p-1 bg-white border-b border-slate-100">
         <span>Grandtotal</span>
         <span>₹{grandTotal}</span>
       </div>
-      <div className="flex flex-col gap-4  p-1">
+      <div className="flex flex-col gap-2  p-1">
         <div className="flex items-center gap-2 bg-white p-2">
           <>
             <MdOutlineLocalOffer />
@@ -42,7 +42,7 @@ export default function OTPModal() {
   );
 
   const footer=(
-    <div className=" mt-7 text-xs flex justify-around items-center border border-slate-100 py-4 rounded-lg">
+    <div className=" mt-4 text-xs flex justify-around items-center border border-slate-100 py-4 rounded-lg">
         <div>
         <p className="text-slate-400">Your Order is Protectd by</p>
         <p className="text-bold text-blue-600">Simpl Sure</p>

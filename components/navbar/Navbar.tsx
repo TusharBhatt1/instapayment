@@ -50,7 +50,9 @@ export default function Navbar({
             </span>
           ))}
         </div>
+        <div className="hidden md:block">
         <Searchbar/>
+        </div>
         <div className="flex justify-center items-center gap-7">
           <Link href={"/wishlist"}>
             <CiHeart size={28} />

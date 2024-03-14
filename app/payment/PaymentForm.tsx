@@ -72,7 +72,7 @@ clearErrors()
         
 
         {paymentMethod === "UPI" && (
-          <div className="flex gap-4 justify-center">
+          <div className="flex flex-col md:flex-row gap-4 justify-center">
             {UPIConfig?.map((row, id) => {
               const name: any = row?.name;
               const prop = {
@@ -91,7 +91,7 @@ clearErrors()
 
         {paymentMethod === "Cards" && (
           <div className="flex flex-col justify-center items-center text-center">
-            <div className="flex gap-4">
+            <div className="flex flex-col md:flex-row gap-4">
               {cardsConfig?.map((row, id) => {
                 const name: any = row?.name;
                 const prop = {
