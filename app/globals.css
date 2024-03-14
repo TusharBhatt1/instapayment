@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .img {
   float: left;
   width:  120px;

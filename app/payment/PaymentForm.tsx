@@ -15,31 +15,32 @@ import {
 import { cardsConfig } from "@/Others/CardsConfig";
 import { UPIConfig } from "@/Others/UPIConfig";
 
+function isEmptyObject(obj) {
+  for (var key in obj) {
+      if (obj.hasOwnProperty(key)) {
+          return false;
+      }
+  }
+  return true;
+}
 
 export default function PaymentForm({paymentMethod,grandTotal}:{paymentMethod:string,grandTotal:number}) {
-
+  const [errors,setErrors]=useState({})
+  const [values,setValues]=useState({})
   const [isProcessing, setIsProcessing] = useState(false);
+  const isValid = () =>{
+    let valid = true
+    const config = paymentMethod==='UPI' ? UPIConfig : cardsConfig
+    config?.forEach((row)=>{
+        const name: any = row?.name;
+        if(errors[name] || !values[name]) {
+          valid=false
+        }
+      })
+   
+    return valid
+  }
   const router = useRouter();
-
-  const {
-    handleSubmit,
-    formState: { errors, isValid },
-    setValue,
-    trigger,
-    clearErrors,
-  } = useForm<PaymentSchemaType>({
-    resolver: yupResolver(paymentSchema),
-  });
-
-  useEffect(() => {
-    //@ts-ignore
-    setValue("paymentMode", "UPI");
-
-
-    // if (userdetails.name === "") {
-    //   unAuth();
-    // }
-  }, []);
   const unAuth = () => {
     router.push("/checkout/details");
     toast.error("Need details first");
@@ -54,9 +55,10 @@ export default function PaymentForm({paymentMethod,grandTotal}:{paymentMethod:st
 //     clearErrors();
 //   };
 
+
 useEffect(()=>{
-setValue("paymentMode",paymentMethod)
-clearErrors()
+  setValues({})
+  setErrors({})
 },[paymentMethod])
 
   const onSubmit = () => {
@@ -67,7 +69,7 @@ clearErrors()
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <div>
       <div className="flex flex-col justify-center items-center rounded-md py-4 gap-4">
         
 
@@ -76,10 +78,15 @@ clearErrors()
             {UPIConfig?.map((row, id) => {
               const name: any = row?.name;
               const prop = {
+                value:values[name] || '',
                 onChange: (e: any) => {
-                  //@ts-ignore
-                  setValue(name, e?.target?.value);
-                  trigger(name);
+                  const val = e.target.value
+                  setValues({...values,[name]:val})
+                  if(!row.onValidate(val)){
+                    setErrors({...errors,[name]:{message:row?.errorMessage}})
+                  }else{
+                    setErrors({...errors,[name]:null})
+                  }
                 },
                 ...row,
               };
@@ -95,10 +102,15 @@ clearErrors()
               {cardsConfig?.map((row, id) => {
                 const name: any = row?.name;
                 const prop = {
+                  value:values[name] || '',
                   onChange: (e: any) => {
-                    //@ts-ignore
-                    setValue(name, e?.target?.value);
-                    trigger(name);
+                    const val = e.target.value
+                    setValues({...values,[name]:val})
+                    if(!row.onValidate(val)){
+                      setErrors({...errors,[name]:{message:row?.errorMessage}})
+                    }else{
+                      setErrors({...errors,[name]:null})
+                    }
                   },
                   ...row,
                 };
@@ -113,11 +125,13 @@ clearErrors()
         
         <Button
           type="submit"
+          onClick={()=>alert("success")}
           label={`Pay ₹ ${grandTotal}`}
-          disabled={!isValid}
+          disabled={!isValid()}
           isProcessing={isProcessing}
+          
         />
       </div>
-    </form>
+    </div>
   );
 }
