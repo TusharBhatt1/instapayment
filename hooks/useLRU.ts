@@ -26,18 +26,15 @@ class LRUCache {
   }
 
   getItem(key: string) {
-    const cacheItemIndex = this.cache.findIndex((item) => item.key === key);
-    if (cacheItemIndex !== -1) {
-      const cacheItem = this.cache.splice(cacheItemIndex, 1)[0]; // Remove the item
+    const cacheItem = this.cache.find((item) => item.key === key);
+    if (cacheItem) {
+      // Move the found item to the front
+      this.cache = this.cache.filter((item) => item.key !== key); // Remove the item
       this.cache.unshift(cacheItem); // Move it to the front
       return cacheItem.value;
     }
     return undefined;
   }
-  
-  
-  
-  
 }
 
 interface LRUStore {
@@ -50,7 +47,7 @@ const useLRU = create<LRUStore>((set) => {
   const totalCache = new LRUCache(5);
 
   return {
-    cache: totalCache.cache,
+    cache: [...totalCache.cache], // Return a copy of the cache array
     setItem: (key: string, value: any) => {
       const existingIndex = totalCache.cache.findIndex(
         (item) => item.key === key

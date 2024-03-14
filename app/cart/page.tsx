@@ -25,9 +25,6 @@ export default function page() {
     );
   return (
     <div>
-      <Heading
-      title="Cart"
-      />
     <div className="flex flex-col sm:flex-row justify-between  py-7 px-8 md:px-32 gap-12">
      <OrderList cart={cart}/>
      

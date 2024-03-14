@@ -8,6 +8,7 @@ import OTPModal from "@/components/Modal/OTPModal";
 import RecentlyViewed from "@/components/RecentlyViewed";
 import WishlistModal from "@/components/Modal/WishlistModal";
 import AddToWishlistModal from "@/components/Modal/AddToWishlistModal";
+import Intro from "@/components/Intro";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ToasterProvider />
+        <Intro/>
         <NavWrapper />
         <AddToWishlistModal/>
         <WishlistModal/>
