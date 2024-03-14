@@ -36,7 +36,7 @@ export default function Navbar({
   //   <p>navbar</p>
   // )
   return (
-    <div className="flex flex-col gap-2 z-50 ">
+    <div className="flex flex-col gap-2 z-40 ">
       <div className="fixed w-full bg-white flex justify-between sm:justify-around items-center p-4 border-b z-50 border-slate-100">
         <div>
           <Link href={"/"}>
