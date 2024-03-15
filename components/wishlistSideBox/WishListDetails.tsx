@@ -49,10 +49,10 @@ export default function WishListDetails({
       <p className="text-lg">All Wishlists</p>
       <Link href={"/wishlist"} className="hidden md:block text-xs font-bold text-blue-500">View All</Link>
       </div>
-      <div className="border border-slate-200 rounded-md">
-        <div className=" border-b border-slate-300">
+      <div className="border border-slate-300 rounded-md">
+        <div>
           {all_wishlists.length===0 ? <p className="text-slate-400 p-4">No wishlist</p> : all_wishlists.map((wishlist, index) => (
-            <div className="flex flex-col">
+            <div className="flex flex-col border-b border-slate-300">
               <div>
                 <div
                   className={`${
@@ -104,7 +104,7 @@ export default function WishListDetails({
         </div>
         <div
           onClick={() => wishListModal.onOpen()}
-          className="cursor-pointer p-4 font-bold  flex items-center gap-3 text-md"
+          className="cursor-pointer p-4 font-bold border-t border-slate-300 flex items-center gap-3 text-md"
         >
           <FaCirclePlus size={22} />
           <span>Create Wishlist</span>{" "}

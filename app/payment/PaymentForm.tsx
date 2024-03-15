@@ -2,27 +2,19 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Button from "@/components/Button";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import Input from "@/components/Input";
 import { useRouter } from "next/navigation";
-
-import toast from "react-hot-toast";
-import {
-  paymentSchema,
-  PaymentSchemaType,
-} from "../../Others/validations/paymentSchema";
 import { cardsConfig } from "@/Others/CardsConfig";
 import { UPIConfig } from "@/Others/UPIConfig";
 
-function isEmptyObject(obj) {
-  for (var key in obj) {
-      if (obj.hasOwnProperty(key)) {
-          return false;
-      }
-  }
-  return true;
-}
+// function isEmptyObject(obj) {
+//   for (var key in obj) {
+//       if (obj.hasOwnProperty(key)) {
+//           return false;
+//       }
+//   }
+//   return true;
+// }
 
 export default function PaymentForm({paymentMethod,grandTotal}:{paymentMethod:string,grandTotal:number}) {
   const [errors,setErrors]=useState({})
@@ -47,13 +39,7 @@ export default function PaymentForm({paymentMethod,grandTotal}:{paymentMethod:st
     return;
   }
 
-//   const handleSelectMethod = (method: "UPI" | "CARDS") => {
-//     setPayMethod(method);
-//     setPaymentMethod(method);
-//     //@ts-ignore
-//     setValue("paymentMode", method);
-//     clearErrors();
-//   };
+
 
 
 useEffect(()=>{
@@ -61,18 +47,15 @@ useEffect(()=>{
   setErrors({})
 },[paymentMethod])
 
-  const onSubmit = () => {
-    setIsProcessing(true);
-    setTimeout(() => {
-     alert("Done");
-    }, 2000);
-  };
+const onSubmit=()=>{
+  setIsProcessing(true)
+  setTimeout(()=>router.push("/confirmation"),2000) 
+}
 
   return (
     <div>
-      <div className="flex flex-col justify-center items-center rounded-md py-4 gap-4">
-        
-
+      <div className="flex flex-col justify-center items-center rounded-md py-4 gap-4 bg-slate-50">
+      
         {paymentMethod === "UPI" && (
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             {UPIConfig?.map((row, id) => {
@@ -122,10 +105,10 @@ useEffect(()=>{
             </div>
           </div>
         )}
-        
+       
         <Button
           type="submit"
-          onClick={()=>alert("success")}
+          onClick={onSubmit}
           label={`Pay ₹ ${grandTotal}`}
           disabled={!isValid()}
           isProcessing={isProcessing}

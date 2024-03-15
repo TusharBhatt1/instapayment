@@ -12,7 +12,7 @@ export const UPIConfig = [
       
         return false;
       },
-      errorMessage:'Invalid holderName',
+      errorMessage:'Invalid , atleast length 5 ',
 
     },
     {
@@ -20,7 +20,7 @@ export const UPIConfig = [
       label: "UPI ID",
       placeholder: "Enter UPI ID",
       type: "text",
-      errorMessage:'Invalid Upi Address',
+      errorMessage:'Invalid UPI Address ex: xyz@oksbi',
 
       onValidate:(upiAddress:string)=>{
         const regex = /^[\w.-]+@[\w.-]+$/;
