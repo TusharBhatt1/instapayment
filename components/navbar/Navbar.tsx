@@ -9,7 +9,6 @@ import useCartModal from "@/hooks/useCartModal";
 import { icons } from "@/Others/Icons";
 import useCartDetails from "@/hooks/useCartDetails";
 import { ProductType } from "@/@types";
-import { IoSearch } from "react-icons/io5";
 import useAllProducts from "@/hooks/useAllProducts";
 import Searchbar from "./Searchbar";
 
@@ -40,7 +39,7 @@ export default function Navbar({
        
           <Link className="flex items-center gap-3" href={"/"}>
             <Image  priority src={logo} height={40} width={40} alt="logo" />
-            <span className="hidden md:block font-extrabold text-xl">unbox</span>
+            <span className="hidden md:block font-extrabold text-2xl">unbox</span>
           </Link>
   
         <div className="hidden md:flex justify-center items-center gap-7">
