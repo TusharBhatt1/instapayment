@@ -10,6 +10,8 @@ import WishlistModal from "@/components/Modal/WishlistModal";
 import AddToWishlistModal from "@/components/Modal/AddToWishlistModal";
 import Intro from "@/components/Intro";
 import {Poppins} from "next/font/google"
+import Footer from "@/components/Footer";
+import Popup from "@/components/Popup";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,12 +37,14 @@ export default function RootLayout({
         <ToasterProvider />
         <Intro/>
         <NavWrapper />
+        <Popup/>
         <AddToWishlistModal/>
         <WishlistModal/>
         <OTPModal />
         <CartModal />
         {children}
         <RecentlyViewed/>
+        <Footer/>
       </body>
     </html>
   );

@@ -6,6 +6,15 @@
   font-family: var(--font-poppins);
   font-size: 14px;
 }
+.animate-fade-out {
+  opacity: 0;
+  animation: fadeout ease-in-out 1s forwards;
+}
+
+@keyframes fadeout {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
 .img {
   float: left;
   width: 120px;

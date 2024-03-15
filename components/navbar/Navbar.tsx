@@ -12,6 +12,7 @@ import { ProductType } from "@/@types";
 import { IoSearch } from "react-icons/io5";
 import useAllProducts from "@/hooks/useAllProducts";
 import Searchbar from "./Searchbar";
+
 export default function Navbar({
   randomCart,
   allProductss,
@@ -28,21 +29,20 @@ export default function Navbar({
   
   }, []);
   const cartModal = useCartModal();
-  const {allProducts,setAllProducts}=useAllProducts()
+  const {setAllProducts}=useAllProducts()
 
   const categories = ["Men", "Women", "Kids"];
 
-  // return(
-  //   <p>navbar</p>
-  // )
   return (
     <div className="flex flex-col gap-2 z-40 ">
+  
       <div className="fixed w-full bg-white flex justify-between sm:justify-around items-center p-4 border-b z-50 border-slate-100">
-        <div>
-          <Link href={"/"}>
-            <Image priority src={logo} height={40} width={40} alt="logo" />
+       
+          <Link className="flex items-center gap-3" href={"/"}>
+            <Image  priority src={logo} height={40} width={40} alt="logo" />
+            <span className="hidden md:block font-extrabold text-xl">unbox</span>
           </Link>
-        </div>
+  
         <div className="hidden md:flex justify-center items-center gap-7">
           {categories.map((ctg) => (
             <span key={ctg} className="hover:border-b border-black cursor-pointer p-1">
