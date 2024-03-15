@@ -6,7 +6,7 @@ interface Intro{
 }
 
 const useIntro=create<Intro>((set)=>({
-    isOpen:false,
+    isOpen:true,
     onClose:()=>set({isOpen:false})
 }))
 
