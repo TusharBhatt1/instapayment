@@ -93,14 +93,3 @@ export default function SearchBar() {
   );
 }
 
-  
-//   const handleChangeBetter=myDebounce(handleChange)
-
-// const myDebounce = (cb: any) => {
-//     let timer: ReturnType<typeof setTimeout>;
-
-//     return function (e: React.ChangeEvent<HTMLInputElement>) {
-//         if (timer) clearTimeout(timer);
-//         timer = setTimeout(() => cb(e), 1000); 
-//     };
-// };

@@ -5,18 +5,25 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 
-const EnterOtp = ({ onClose }: { onClose: () => void }) => {
+const EnterOtp = ({
+  onClose,
+  setShowEnterOTP,
+}: {
+  onClose: () => void;
+  setShowEnterOTP: (v: boolean) => void;
+}) => {
   const length = 4;
   const [otp, setOtp] = useState(new Array(length).fill(""));
   const inputRefs = useRef([]);
   const router = useRouter();
-  const {user}=useUserDetails()
+  const { user } = useUserDetails();
 
   useEffect(() => {
     if (inputRefs.current[0]) {
       inputRefs.current[0].focus();
     }
   }, []);
+ 
 
   const handleChange = (index, e) => {
     const value = e.target.value;
@@ -29,11 +36,13 @@ const EnterOtp = ({ onClose }: { onClose: () => void }) => {
 
     const combinedOtp = newOtp.join("");
     if (combinedOtp.length === length) {
-      onClose();
-      toast.success("OTP Verified");
-      setTimeout(() => {
+   
+      setTimeout(()=>{
         router.push("/userdetails");
-      }, 2000);
+        onClose()
+        toast.success("OTP Verified");
+        setShowEnterOTP(false)
+      },500)
     }
 
     if (value && index < length - 1 && inputRefs.current[index + 1]) {
@@ -64,7 +73,9 @@ const EnterOtp = ({ onClose }: { onClose: () => void }) => {
   return (
     <div className="flex flex-col gap-3 text-center">
       <p className="text-lg font-bold">Enter OTP</p>
-      <span className="text-xs font-bold">We have sent an OTP to {user.num?.toString().slice(0,5)}XXXXX </span>
+      <span className="text-xs font-bold">
+        We have sent an OTP to {user.num?.toString().slice(0, 5)}XXXXX{" "}
+      </span>
       <div className="flex justify-center gap-2 items-center">
         {otp.map((value, index) => {
           return (

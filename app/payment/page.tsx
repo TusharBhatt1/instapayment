@@ -34,7 +34,7 @@ export default function page() {
         {/* //left */}
         <div className="flex flex-col gap-7">
           <div className="border w-full rounded-md border-slate-200 p-4 flex flex-col gap-2">
-            <span className="border-b border-slate-100 font-bold">
+            <span className="border-b border-slate-100 font-bold p-2">
               Payment Methods
             </span>
             <div className="flex flex-col gap-4">
@@ -57,7 +57,7 @@ export default function page() {
                 onClick={() => setPaymentMethod("Cards")}
                 className={`${
                   paymentMethod === "Cards" && "bg-green-200"
-                } hover:cursor-pointer hover:bg-green-200 flex justify-between p-5 items-center`}
+                } hover:cursor-pointer hover:bg-green-200 flex justify-between p-2 items-center`}
               >
                 {paymentMethod === "Cards" ? (
                   <FaCheckCircle />

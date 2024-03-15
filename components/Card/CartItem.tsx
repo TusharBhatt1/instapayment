@@ -5,6 +5,7 @@ import React from "react";
 import toast from "react-hot-toast";
 import { IoClose } from "react-icons/io5";
 import { GiReturnArrow } from "react-icons/gi";
+import Link from "next/link";
 
 export default function CartItem({ product }: { product: ProductType }) {
   const { id, title, image, price,quantity } = product;
@@ -12,10 +13,10 @@ export default function CartItem({ product }: { product: ProductType }) {
   return (
     <div className="flex justify-between items-start w-full p-2 rounded-md border-b border-slate-200">
       <div>
-        <div className="flex justify-center items-center gap-3">
-          <div>
+        <div className="flex justify-center items-center gap-5">
+          <Link href={`/product/${id}`}>
             <Image src={image} alt={title} height={40} width={40} />
-          </div>
+          </Link>
           <div className="flex flex-col gap-2 md:gap-4">
             <span> {title.split(" ").slice(0, 4).join(" ")}</span>
             <div className="flex gap-4 text-center">

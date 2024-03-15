@@ -14,7 +14,7 @@ export default function PhoneValidation({
 }) {
   const {
     handleSubmit,
-    formState: { errors, isValid,isDirty},
+    formState: { errors, isValid},
     register,
     trigger,
     watch
@@ -32,11 +32,13 @@ export default function PhoneValidation({
     return setIsValid(false)
   },[])
 
-  const {user,setUserDetails}=useUserDetails()
+  const {setUserDetails}=useUserDetails()
+
+
   const onSubmit = () => {
     if (isValid) {
         setShowEnterOTP(true);
-        setUserDetails("num", watch("contact")); // Saving valid phone number to user object
+        setUserDetails("num", watch("contact"));
     }
 };
   return (
@@ -64,7 +66,7 @@ export default function PhoneValidation({
             className={`block py-2.5 ps-6 pe-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
               errors.contact ? "focus:border-red-400" : ""
             }`} // Add conditional class based on validation error
-            placeholder="Enter Mobile Number"
+            placeholder="Enter 10 digits Mobile Number"
           />
           <label
             htmlFor="floating-phone-number"

@@ -33,7 +33,7 @@ export default function OTPModal() {
       </div>
       <div>
     {!showEnterOTP ? <PhoneValidation setShowEnterOTP={setShowEnterOTP} setIsValid={setIsValid}/>
-    :<EnterOtp onClose={onClose}/>
+    :<EnterOtp setShowEnterOTP={setShowEnterOTP} onClose={onClose}/>
     
      }
     
@@ -43,8 +43,8 @@ export default function OTPModal() {
 
   const footer=(
     <div className=" mt-4 text-xs flex justify-around items-center border border-slate-100 py-4 rounded-lg">
-        <div>
-        <p className="text-slate-400">Your Order is Protectd by</p>
+        <div className="flex flex-col gap-1">
+        <p className="text-slate-400 text-xs">Your Order is Protectd by</p>
         <p className="text-bold text-blue-600">Simpl Sure</p>
         </div>
         <div className="flex justify-between items-center gap-2 border border-blue-600  p-1 rounded-lg">
