@@ -38,7 +38,7 @@ export default function UserDetailsForm() {
   };
   return (
     <div className="flex justify-center items-center sm:p-4">
-      <form onSubmit={handleSubmit(onSubmit)} className="bg-slate-50 p-2">
+      <form onSubmit={handleSubmit(onSubmit)} className="bg-slate-50 rounded-lg p-3">
         <p className="text-lg font-bold text-center">Enter Details</p>
         <div className="max-w-xl flex flex-wrap p-4 justify-center items-center rounded-md  gap-2">
           {formConfig?.map((row, id) => {

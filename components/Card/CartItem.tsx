@@ -22,7 +22,7 @@ export default function CartItem({ product }: { product: ProductType }) {
             <div className="flex gap-4 text-center">
               <span className="bg-slate-100 rounded-xl p-1 px-2">Qty:<span className="font-bold">{" "}1</span></span>
               <span className="bg-slate-100 rounded-xl p-1 px-2">Size:<span className="font-bold">{" "}Free</span></span>
-              <span className="hidden sm:block text-xs rounded-xl p-1 px-2 border text-blue-600 font-bold border-blue-500">{quantity} left</span>
+              <span className="hidden text-center sm:block text-xs rounded-xl p-1 px-2 border text-blue-600 font-bold border-blue-500">{quantity} left</span>
             </div>
             <p className=" font-bold">₹ {price}</p>
             <span className="flex justify-center items-center gap-1 font-bold"><GiReturnArrow/> 14 Days return</span>
