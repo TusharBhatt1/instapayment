@@ -16,6 +16,7 @@ export default function PricingDetails({
 }) {
   const [donation, setDonation] = useState(0);
   const [coupon, setCoupon] = useState(0);
+  const allDonations = [10, 50, 100];
   const pricingDetails = [
     {
       label: "Total MRP",
@@ -81,29 +82,20 @@ export default function PricingDetails({
           </span>
         </span>
         <div className="flex items-center justify-start gap-2">
-          <button
-            className={`${donation === 10 && "bg-blue-500 text-white"} button`}
-            onClick={() => setDonation(10)}
-          >
-            ₹10
-          </button>
-          <button
-            className={`${donation === 50 && "bg-blue-500 text-white"} button`}
-            onClick={() => setDonation(50)}
-          >
-            ₹50
-          </button>
-          <button
-            className={`${donation === 100 && "bg-blue-500 text-white"} button`}
-            onClick={() => setDonation(100)}
-          >
-            ₹100
-          </button>
+          {allDonations.map((d, i) => (
+            <button
+              key={i}
+              className={`${donation === d && "bg-blue-500 text-white"} button`}
+              onClick={() => setDonation(d)}
+            >
+              ₹{d}
+            </button>
+          ))}
         </div>
         <div>
           <span className="text-sm font-bold text-slate-500">
-            Pricing Details ({cartLength}{" "}
-            {`${cartLength > 1 ? "items" : "item"}`})
+            Pricing Details
+            {`${cartLength > 1 ? "items" : "item"}`}
           </span>
           <div className="flex flex-col">
             {pricingDetails.map((pr, index) => (
