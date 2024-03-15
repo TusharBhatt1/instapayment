@@ -54,7 +54,7 @@ const onSubmit=()=>{
 
   return (
     <div>
-      <div className="flex flex-col justify-center items-center rounded-md py-4 gap-4 bg-slate-50">
+      <div className="flex flex-col justify-center items-center rounded-md py-4 gap-7 bg-slate-50">
       
         {paymentMethod === "UPI" && (
           <div className="flex flex-col md:flex-row gap-4 justify-center">

@@ -13,11 +13,11 @@ interface UserDetails {
 
 const useUserDetails = create<UserDetails>((set) => ({
     user: {
-        name: null,
-        num: null,
-        alt_num: null,
-        address: null,
-        email:null
+        name: "Tushar Bhatt",
+        num: 7617334234,
+        alt_num: 7617334234,
+        address: "Tushar Bhatt",
+        email:"Tushar Bhatt"
     },
     setUserDetails: (key, value) => set((state) => ({
         user: {

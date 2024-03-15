@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import {
   FaCheckCircle,
   FaInfoCircle,
+  FaMapMarkerAlt,
   FaRupeeSign,
   FaShoppingCart,
 } from "react-icons/fa";
@@ -14,6 +15,7 @@ import { FaRegCheckCircle } from "react-icons/fa";
 import PaymentForm from "./PaymentForm";
 import { FaCreditCard, FaMobile } from "react-icons/fa";
 import { CiCircleChevDown, CiCircleChevUp } from "react-icons/ci";
+import { FaEnvelope, FaPhone, FaUser } from "react-icons/fa6";
 
 export default function page() {
   const [paymentMethod, setPaymentMethod] = useState("UPI");
@@ -86,7 +88,7 @@ export default function page() {
             onClick={() => setExpandOrder(!expandOrder)}
             className="bg-white rounded-md cursor-pointer flex items-center justify-between p-1 border-b border-gray-200"
           >
-            <span className="text-gray-600 p-1 ">
+            <span className="text-gray-600 p-2 ">
               <FaShoppingCart className="inline-block mr-1" />
               Total ({cart.length})
             </span>
@@ -123,21 +125,31 @@ export default function page() {
               ))}
             </div>
           )}
-          <div className="mt-4 font-bold bg-white rounded-md p-2">
-            <p className="text-gray-600">Shipping Details:</p>
-            <ul className="list-disc pl-6">
-              <li>{user.name}</li>
-              <li>
-                {user.num}, {user.alt_num}
-              </li>
-              <li>{user.email}</li>
-              <li>{user.address}</li>
-            </ul>
-          </div>
+          <div className="mt-4 flex flex-col gap-3 bg-white rounded-md p-4">
+      <p className="text-gray-600 font-semibold">Shipping Details</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex items-center">
+          <FaUser className="mr-2" />
+          <p className="text-gray-700">{user.name}</p>
+        </div>
+        <div className="flex items-center">
+          <FaMapMarkerAlt className="mr-2" />
+          <p className="text-gray-700">{user.address}</p>
+        </div>
+        <div className="flex items-center">
+          <FaPhone className="mr-2" />
+          <p className="text-gray-700">{user.num}, {user.alt_num}</p>
+        </div>
+        <div className="flex items-center">
+          <FaEnvelope className="mr-2" />
+          <p className="text-gray-700">{user.email}</p>
+        </div>
+      </div>
+    </div>
           <div className="flex flex-col gap-4 p-2 mt-2 bg-white rounded-md">
             {pricing.map((price, i) => (
               <div
-                className="flex flex-cols border-b border-slate-200 gap-2 justify-between"
+                className={`${i==2 && "font-bold"} flex flex-cols border-b border-slate-200 gap-2 justify-between`}
                 key={i}
               >
                 <span>{price.name}</span>
