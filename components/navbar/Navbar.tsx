@@ -71,7 +71,7 @@ export default function Navbar({
         {icons.map((i, index) => (
           <Image
             key={index}
-            className="cursor-pointer hover:border-b border-black"
+            className="cursor-pointer"
             src={i}
             alt="icon"
             height={55}

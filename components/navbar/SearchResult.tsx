@@ -14,15 +14,15 @@ export default function SearchResult({
 }:ResultProps) {
   if (filteredResult.length === 0) {
     return (
-      <div className="max-h-40 w-full shadow-sm bg-slate-50 text-black z-30 p-2 overflow-y-auto">
-        <div className="flex flex-col">
-          <p>No result</p>
+      <div className="max-h-40 w-full shadow-sm rounded-md bg-slate-50 text-black z-30 p-3 overflow-y-auto">
+        <div className="flex flex-col text-xs">
+          <p>Currently no result</p>
         </div>
       </div>
     );
   }
   return (
-    <div className="max-h-40 w-full text-xs shadow-sm bg-slate-50 text-black z-30 p-2 overflow-y-auto">
+    <div className="max-h-40 w-full text-xs rounded-md shadow-sm bg-slate-50 text-black z-30 p-3 overflow-y-auto">
       <div className="flex flex-col gap-3 p-1">
         {filteredResult.map((p) => (
           <Link

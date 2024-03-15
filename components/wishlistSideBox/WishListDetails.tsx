@@ -44,8 +44,8 @@ export default function WishListDetails({
   };
 
   return (
-    <div className="w-[80vw] md:w-[28vw] flex flex-col gap-4">
-      <div className="flex justify-between px-2 items-center">
+    <div className="w-[80vw] md:w-[28vw] flex flex-col gap-3">
+      <div className="flex justify-between px-1 items-center">
       <p className="text-lg">All Wishlists</p>
       <Link href={"/wishlist"} className="hidden md:block text-xs font-bold text-blue-500">View All</Link>
       </div>

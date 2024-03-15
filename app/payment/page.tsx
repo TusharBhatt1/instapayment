@@ -57,7 +57,7 @@ export default function page() {
                 onClick={() => setPaymentMethod("Cards")}
                 className={`${
                   paymentMethod === "Cards" && "bg-green-200"
-                } hover:cursor-pointer hover:bg-green-200 flex justify-between p-2 items-center`}
+                } hover:cursor-pointer hover:bg-green-200 flex justify-between p-5 items-center`}
               >
                 {paymentMethod === "Cards" ? (
                   <FaCheckCircle />
@@ -79,8 +79,8 @@ export default function page() {
           </div>
         </div>
         {/* right */}
-        <div className="border border-gray-200 rounded-md p-4 bg-slate-50">
-          <h2 className="border-b border-gray-200 pb-2">
+        <div className="border border-gray-200 rounded-md p-4 bg-blue-50">
+          <h2 className="pb-2">
             Review Details
             <FaInfoCircle className="inline-block ml-2 text-gray-400" />
           </h2>
@@ -101,7 +101,9 @@ export default function page() {
             </span>
           </div>
           {expandOrder && (
-            <div className="overflow-y-auto max-h-40 text-xs">
+            <div
+              className={`overflow-y-auto max-h-40 text-xs mb-7 transition-opacity duration-500 ease-in-out`}
+            >
               {cart.map((item) => (
                 <div
                   key={item.id}
@@ -115,7 +117,9 @@ export default function page() {
                       width={20}
                       className="rounded-full"
                     />
-                    <span className="ml-2">{item.title}</span>
+                    <span className="ml-2 text-xs ">
+                      {item.title.split(" ").slice(0, 4).join(" ")}
+                    </span>
                   </div>
                   <span>
                     <FaRupeeSign className="inline-block mr-1" />
@@ -125,31 +129,36 @@ export default function page() {
               ))}
             </div>
           )}
-          <div className="mt-4 flex flex-col gap-3 bg-white rounded-md p-4">
-      <p className="text-gray-600 font-semibold">Shipping Details</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="flex items-center">
-          <FaUser className="mr-2" />
-          <p className="text-gray-700">{user.name}</p>
-        </div>
-        <div className="flex items-center">
-          <FaMapMarkerAlt className="mr-2" />
-          <p className="text-gray-700">{user.address}</p>
-        </div>
-        <div className="flex items-center">
-          <FaPhone className="mr-2" />
-          <p className="text-gray-700">{user.num}, {user.alt_num}</p>
-        </div>
-        <div className="flex items-center">
-          <FaEnvelope className="mr-2" />
-          <p className="text-gray-700">{user.email}</p>
-        </div>
-      </div>
-    </div>
-          <div className="flex flex-col gap-4 p-2 mt-2 bg-white rounded-md">
+
+          <div className="mt-4 flex flex-col gap-3 bg-white rounded-md p-5">
+            <p className="text-gray-600 font-semibold">Shipping Details</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex items-center">
+                <FaUser className="mr-2" />
+                <p className="text-gray-700">{user.name}</p>
+              </div>
+              <div className="flex items-center">
+                <FaMapMarkerAlt className="mr-2" />
+                <p className="text-gray-700">{user.address}</p>
+              </div>
+              <div className="flex items-center">
+                <FaPhone className="mr-2" />
+                <p className="text-gray-700">
+                  {user.num}, {user.alt_num}
+                </p>
+              </div>
+              <div className="flex items-center">
+                <FaEnvelope className="mr-2" />
+                <p className="text-gray-700">{user.email}</p>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col gap-4 p-3 px-5 mt-2 bg-white rounded-md">
             {pricing.map((price, i) => (
               <div
-                className={`${i==2 && "font-bold"} flex flex-cols border-b border-slate-200 gap-2 justify-between`}
+                className={`${
+                  i == 2 && "font-bold"
+                } flex flex-cols border-b border-slate-200 gap-2 justify-between`}
                 key={i}
               >
                 <span>{price.name}</span>
