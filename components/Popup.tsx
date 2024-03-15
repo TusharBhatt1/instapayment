@@ -50,7 +50,7 @@ export default function Popup() {
       <div className="fixed inset-0 flex justify-center items-center z-50">
         <div className="bg-white flex  flex-col gap-4 rounded-lg shadow-lg p-6 max-w-md z-50">
           <div className="flex items-center justify-between  text-center">
-            <h2 className="text-2xl font-bold mb-4">What makes it unique</h2>
+            <h2 className="text-2xl font-bold mb-4">Key Highlights</h2>
             <button onClick={() => setShow(false)}>
               <IoMdClose size={22} />
             </button>
