@@ -11,7 +11,7 @@ export default function CartItem({ product }: { product: ProductType }) {
   const { id, title, image, price,quantity } = product;
   const { onRemoveItem } = useCartDetails();
   return (
-    <div className="flex justify-between bg-white rounded-lg items-start w-full p-2 rounded-md border-b border-slate-200">
+    <div className="flex justify-between rounded-lg bg-slate-50 items-start w-full p-2 border-b border-slate-200">
       <div>
         <div className="flex justify-center items-center gap-5">
           <Link href={`/product/${id}`}>

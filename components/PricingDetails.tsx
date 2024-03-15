@@ -39,7 +39,7 @@ export default function PricingDetails({
   const router = useRouter();
 
   return (
-    <div className="w-full bg-slate-50  bg-slate-40 flex flex-col gap-4 p-1">
+    <div className="w-full flex flex-col gap-4 p-1">
       <div className="border-b border-slate-100 text-slate-400">
         {/* Cart ready to take off 🚀 with ({cartLength}{" "} */}
         Order Summary ({cartLength} {`${cartLength > 1 ? "items" : "item"}`})
