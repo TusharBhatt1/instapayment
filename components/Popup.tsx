@@ -41,7 +41,7 @@ export default function Popup() {
     {
       icon: <RiHistoryLine className="text-green-500" />,
       title: "LRU Caching",
-      description: "Efficiently store and retrieve recent viewed items.",
+      description: "Efficiently store and retrieve recently viewed items.",
     },
   ];
 
