@@ -43,7 +43,7 @@ const Input: React.FC<InputProps> = ({
         onChange={onChange}
         {...props}
       />
-      {error ? <span className="relative text-red-400 text-xs">{error}</span> : <span className="text-xs">.</span>}
+      {error ? <span className="relative text-red-400 text-xs">{error}</span> : <span className="text-xs text-white">.</span>}
     </div>
   );
 };
