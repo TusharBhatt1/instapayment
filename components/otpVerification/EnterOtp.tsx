@@ -23,11 +23,9 @@ const EnterOtp = ({
       inputRefs.current[0].focus();
     }
   }, []);
- 
 
   const handleChange = (index, e) => {
-    const value = e.target.value;
-    if (isNaN(value)) return;
+    if (value.length > length || isNaN(value)) return;
 
     const newOtp = [...otp];
 
@@ -35,14 +33,14 @@ const EnterOtp = ({
     setOtp(newOtp);
 
     const combinedOtp = newOtp.join("");
+
     if (combinedOtp.length === length) {
-   
-      setTimeout(()=>{
+      setTimeout(() => {
         router.push("/userdetails");
-        onClose()
+        onClose();
         toast.success("OTP Verified");
-        setShowEnterOTP(false)
-      },500)
+        setShowEnterOTP(false);
+      }, 100);
     }
 
     if (value && index < length - 1 && inputRefs.current[index + 1]) {

@@ -7,14 +7,6 @@ import { useRouter } from "next/navigation";
 import { cardsConfig } from "@/Others/CardsConfig";
 import { UPIConfig } from "@/Others/UPIConfig";
 
-// function isEmptyObject(obj) {
-//   for (var key in obj) {
-//       if (obj.hasOwnProperty(key)) {
-//           return false;
-//       }
-//   }
-//   return true;
-// }
 
 export default function PaymentForm({paymentMethod,grandTotal}:{paymentMethod:string,grandTotal:number}) {
   const [errors,setErrors]=useState({})
@@ -32,13 +24,6 @@ export default function PaymentForm({paymentMethod,grandTotal}:{paymentMethod:st
    
     return valid
   }
-  const router = useRouter();
-  const unAuth = () => {
-    router.push("/checkout/details");
-    toast.error("Need details first");
-    return;
-  }
-
 
 
 
@@ -54,7 +39,7 @@ const onSubmit=()=>{
 
   return (
     <div>
-      <div className="flex flex-col justify-center items-center rounded-md py-4 gap-7 sm:bg-blue-50">
+      <div className="flex flex-col justify-center items-center rounded-md py-5 gap-7 sm:bg-slate-50">
       
         {paymentMethod === "UPI" && (
           <div className="flex flex-col md:flex-row gap-4 justify-center">
@@ -108,7 +93,7 @@ const onSubmit=()=>{
         )}
        
         <Button
-          type="submit"
+          
           onClick={onSubmit}
           label={`Pay ₹ ${grandTotal}`}
           disabled={!isValid()}

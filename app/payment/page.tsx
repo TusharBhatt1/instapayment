@@ -79,7 +79,7 @@ export default function page() {
           </div>
         </div>
         {/* right */}
-        <div className="border border-gray-200 rounded-md p-4 bg-blue-50">
+        <div className="border border-gray-200 rounded-md p-4 bg-slate-50">
           <h2 className="pb-2">
             Review Details
             <FaInfoCircle className="inline-block ml-2 text-gray-400" />
