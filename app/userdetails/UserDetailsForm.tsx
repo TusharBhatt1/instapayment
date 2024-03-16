@@ -10,11 +10,12 @@ import { formConfig } from "@/Others/formConfig";
 import { useRouter } from "next/navigation";
 import useUserDetails from "@/hooks/useUserDetails";
 
+
 export default function UserDetailsForm() {
 
   const {
     handleSubmit,
-    formState: { errors },
+    formState: { errors , isValid },
     setValue,
     trigger,
   } = useForm<UserSchemaType>({
@@ -25,6 +26,7 @@ export default function UserDetailsForm() {
 
   const { setUserDetails } = useUserDetails();
   const onSubmit = (data: UserSchemaType) => {
+
     const { name, address, email, contact } = data;
 
     setUserDetails("name", name);
@@ -57,7 +59,7 @@ export default function UserDetailsForm() {
               <Input key={id} error={errors[name]?.message} {...prop} />
             );
           })}
-          <Button label="Submit" type="submit" />
+          <Button disabled={isValid} label="Submit" type="submit" />
         </div>
       </form>
     </div>
