@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { IconType } from "react-icons";
 import { FiLoader } from "react-icons/fi";
 interface ButtonProps {
@@ -21,11 +22,17 @@ const Button: React.FC<ButtonProps> = ({
   type,
   icon: Icon,
 }) => {
+  const [clicked , setClicked]=useState(false)
   return (
     <button
       type={type}
-      disabled={disabled}
-      onClick={onClick}
+      disabled={disabled || clicked}
+      onClick={()=>{
+        setClicked(true)
+        setTimeout(()=>setClicked(false),1000)
+        //@ts-ignore
+        onClick()
+      }}
       className={`
         relative
         m-auto
