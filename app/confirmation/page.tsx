@@ -11,7 +11,7 @@ export default function page() {
             <Lottie height={20} animationData={animation}/>
             </div>
             <div className='flex flex-col justify-center items-center gap-4'>
-            <p className='font-bold'>Your order will reach at your door step by 21st March , 2024</p>
+            <p className='font-bold'>Your order will reach at your door step by 30th March , 2024</p>
             <Link className='border-2 text-white bg-blue-500 p-2 hover:bg-blue-700 px-4 rounded-md' href={"/"}>Home</Link>
             </div>
         </div>

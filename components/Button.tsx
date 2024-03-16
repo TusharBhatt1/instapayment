@@ -23,11 +23,19 @@ const Button: React.FC<ButtonProps> = ({
   icon: Icon,
 }) => {
   const [clicked , setClicked]=useState(false)
+
+  const handleClick = () => {
+    if (onClick) {
+      setClicked(true);
+      setTimeout(() => setClicked(false), 1000);
+      onClick();
+    }
+  };
   return (
     <button
       type={type}
       disabled={disabled || clicked}
-      onClick={onClick}
+      onClick={handleClick}
       className={`
         relative
         m-auto

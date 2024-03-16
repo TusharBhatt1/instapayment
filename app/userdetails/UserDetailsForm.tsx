@@ -59,7 +59,7 @@ export default function UserDetailsForm() {
               <Input key={id} error={errors[name]?.message} {...prop} />
             );
           })}
-          <Button disabled={!isValid} label="Submit" type="submit" />
+          <Button disabled={!isValid} label="Submit"  />
         </div>
       </form>
     </div>
