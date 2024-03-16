@@ -8,7 +8,10 @@ export const userSchema = yup
       .required()
       .matches(/^[a-zA-Z\s]+$/, 'Name must only contain alphabets and spaces.'),
     email: yup.string().email().required(),
-    address: yup.string().min(10).max(50).required(),
+    address: yup.string()
+    .min(10, 'Address must be at least 10 characters long.')
+    .max(50, 'Address cannot exceed 50 characters.')
+    .matches(/^[a-zA-Z0-9\s]+$/, 'Address can only contain letters and numbers.'),
     contact: yup
       .string()
       .matches(

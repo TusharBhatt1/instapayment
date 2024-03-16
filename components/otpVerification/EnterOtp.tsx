@@ -25,6 +25,7 @@ const EnterOtp = ({
   }, []);
 
   const handleChange = (index, e) => {
+    let value=e.target.value
     if (isNaN(value)) return;
 
     const newOtp = [...otp];

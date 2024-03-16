@@ -26,7 +26,7 @@ export default function PaymentForm({paymentMethod,grandTotal}:{paymentMethod:st
   }
 
 
-
+const router=useRouter()
 useEffect(()=>{
   setValues({})
   setErrors({})
