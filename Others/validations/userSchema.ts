@@ -13,7 +13,7 @@ export const userSchema = yup
       .string()
       .matches(
         /^[7-9][0-9]+$/,
-        "Invalid Number must start 7,8 or 9 and should only contain digits"
+        "Invalid , must start with a 7/8/9 and should only contain digits"
       )
       .min(10, "Contact number must be 10 digits")
       .max(10, "Contact number must be 10 digits")
