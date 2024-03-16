@@ -35,7 +35,7 @@ export default function Navbar({
   return (
     <div className="flex flex-col gap-2 z-40 ">
   
-      <div className="fixed w-full bg-white flex justify-between sm:justify-around items-center p-4 border-b z-50 border-slate-100">
+      <div className="fixed w-full bg-black text-white flex justify-between sm:justify-around items-center p-4 border-b z-50 border-slate-100">
        
           <Link className="flex items-center gap-3" href={"/"}>
             <Image  priority src={logo} height={40} width={40} alt="logo" />
@@ -60,7 +60,7 @@ export default function Navbar({
             <div>
               <GiShoppingCart size={28} />
             </div>
-            <span className="bg-blue-100 rounded-full p-1 px-2 relative bottom-2">
+            <span className="text-black bg-white rounded-full p-1 px-2 relative bottom-2">
               {cart.length}
             </span>
           </div>

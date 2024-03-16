@@ -27,12 +27,7 @@ const Button: React.FC<ButtonProps> = ({
     <button
       type={type}
       disabled={disabled || clicked}
-      onClick={()=>{
-        setClicked(true)
-        setTimeout(()=>setClicked(false),1000)
-        //@ts-ignore
-        onClick()
-      }}
+      onClick={onClick}
       className={`
         relative
         m-auto
