@@ -23,7 +23,6 @@ export default function Product({ id }: { id: number }) {
 
   const fetchData = async (id: any) => {
     const data = await getProductDetails(id);
-    console.log("from fetch");
     setDetails(data);
     setItem(`${id}`, data);
   };
@@ -33,7 +32,6 @@ export default function Product({ id }: { id: number }) {
 
     if (cachedItem) {
       setDetails(cachedItem.value);
-      console.log("from cache");
       return;
     } else fetchData(id);
   };

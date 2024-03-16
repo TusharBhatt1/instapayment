@@ -1,4 +1,5 @@
 import { ProductType } from "@/@types";
+import useAddToWishlist from "@/hooks/useAddToWishlist";
 import useCartDetails from "@/hooks/useCartDetails";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -9,6 +10,12 @@ const ProductDetails = ({ details }: { details: ProductType }) => {
   const images = [1, 2, 3, 4];
   const {addToCart}=useCartDetails()
   const [activeImg, setActiveImage] = useState(image);
+  const addToWishlistModal = useAddToWishlist();
+
+  const handleAddToWishlist = (product: ProductType) => {
+    addToWishlistModal.onOpen();
+    addToWishlistModal.setProduct(product);
+  };
 
   return (
     <div className="flex flex-col justify-between lg:flex-row gap-16 lg:items-center">
@@ -41,6 +48,7 @@ const ProductDetails = ({ details }: { details: ProductType }) => {
         <p className="text-gray-700">{description}</p>
         <h6 className="text-2xl font-semibold">₹ {price}</h6>
         <div className="flex flex-row items-center gap-12">
+          <div className="flex flex-col md:flex-row gap-7 md:gap-20 items-center  w-full">
           <div className="flex flex-col gap-4 items-center">
             <div>
               <button className="bg-gray-200 py-2 px-5 rounded-lg text-blue-800 text-3xl">
@@ -53,6 +61,7 @@ const ProductDetails = ({ details }: { details: ProductType }) => {
             </div>
             <p className="text-sm text-slate-400">Oops last one ! Hurry up.</p>
           </div>
+          <div className="flex flex-col gap-4">
           <button
           onClick={()=>{
             addToCart(details)
@@ -61,6 +70,14 @@ const ProductDetails = ({ details }: { details: ProductType }) => {
            className="bg-blue-800 text-white font-semibold py-3 px-16 rounded-xl h-full">
             Add to Cart
           </button>
+          <button
+            className="text-blue-500 border border-black rounded-lg p-2 duration-150 hover:bg-gray-100"
+            onClick={() => handleAddToWishlist(details)}
+          >
+            Wishlist
+          </button>{" "}
+          </div>
+          </div>
         </div>
       </div>
     </div>

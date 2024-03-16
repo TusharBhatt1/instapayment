@@ -50,14 +50,14 @@ export default function PricingDetails({
           <span>
             <CiDiscount1 size={22} />
           </span>
-          <span>get upto ₹500 off on your first order </span>
+          <span>get upto 50% off on your first order </span>
         </div>
         <button
           content="button"
           onClick={() => {
             if (coupon === 0) {
               toast.success("Coupon Applied");
-              setCoupon(-50);
+              setCoupon(cartPrice/2);
             } else setCoupon(0);
           }}
           className={`${
