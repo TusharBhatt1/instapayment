@@ -3,7 +3,7 @@ export const cardsConfig = [
       name: "cardNumber",
       label: "Card Number",
       placeholder: "XXXX-XXXX-XXXX-XXXX",
-      errorMessage:'Invalid CardNumber , length should be 16',
+      errorMessage:'Invalid CardNumber, only 16 digits',
       type: "",
       onValidate:(cardNumber:string)=>{
         try{
@@ -24,7 +24,7 @@ export const cardsConfig = [
       label: "CVV",
       placeholder: "Enter CVV",
       type: "password",
-      errorMessage:'Invalid CVV , should be 3 digits.',
+      errorMessage:'Invalid CVV , only digits',
 
       onValidate:(cvv:string)=>{
         try{

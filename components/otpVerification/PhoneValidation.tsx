@@ -60,13 +60,13 @@ export default function PhoneValidation({
             type="text"
             //@ts-ignore
             onChange={() => trigger("contact")}
-            {...register("contact")} // Registering the input field
+            {...register("contact")} 
             autoFocus
             id="floating-phone-number"
             className={`block py-2.5 ps-6 pe-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
               errors.contact ? "focus:border-red-400" : ""
-            }`} // Add conditional class based on validation error
-            placeholder="Enter 10 digits Mobile Number"
+            }`} 
+            placeholder="Enter 10 digits Mobile Number and hit Enter "
           />
           <label
             htmlFor="floating-phone-number"
@@ -74,7 +74,7 @@ export default function PhoneValidation({
           >
             Phone number
           </label>
-          {errors.contact && ( // Display validation error message if phoneNumber field has an error
+          {errors.contact && ( 
             <p className="text-xs absolute text-red-500">
               {errors.contact.message}
             </p>

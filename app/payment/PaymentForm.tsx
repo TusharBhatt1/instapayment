@@ -88,6 +88,7 @@ const onSubmit=()=>{
                   value:values[name] || '',
                   onChange: (e: any) => {
                     const val = e.target.value
+                    if(name==="cardNumber" && val.length>16 || name==="cvvNum" && val.length>3) return
                     setValues({...values,[name]:val})
                     if(!row.onValidate(val)){
                       setErrors({...errors,[name]:{message:row?.errorMessage}})
