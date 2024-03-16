@@ -44,13 +44,13 @@ export default function CartModal() {
                 <div className=" flex-1 flex text-end w-full">
                   <span>₹{item.price}</span>
                   <span
-                    className="ml-7 rounded-full cursor-pointer hover:bg-slate-200 inline-block"
+                    className="ml-7 cursor-pointer  inline-block"
                     onClick={() => {
                       onRemoveItem(item.id);
                       toast.success("Removed");
                     }}
                   >
-                    <TiDeleteOutline size={20} />
+                    <TiDeleteOutline size={22} />
                   </span>
                 </div>
               </div>
@@ -63,7 +63,7 @@ export default function CartModal() {
   );
   const footer=(
     <div className="mt-4 border-x-slate-100 text-lg text-slate-400">
-    <p>subtotal - ₹ {subtotal}</p>
+    <p>subtotal - ₹ {Math.round(subtotal)}</p>
   </div>
   )
 
