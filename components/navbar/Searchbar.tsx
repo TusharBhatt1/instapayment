@@ -77,8 +77,8 @@ export default function SearchBar() {
             </div>
           )}
            {showResult && (
-            <div className="absolute text-black right-2 hover:bg-slate-100 rounded-full cursor-pointer">
-              <AiOutlineClose size={22} onClick={handleCloseSearch} />
+            <div className="absolute  right-2 hover:bg-slate-100 rounded-full cursor-pointer">
+              <AiOutlineClose className="text-black" size={22} onClick={handleCloseSearch} />
             </div>
           )}
           
