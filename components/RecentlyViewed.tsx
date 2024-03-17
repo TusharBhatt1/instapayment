@@ -16,7 +16,7 @@ export default function RecentlyViewed() {
         <div className='flex items-center flex-wrap gap-12'>
         {cache.map((product)=>(
             <div>
-                <ProductCard key={product.key} product={product.value}/>
+                <ProductCard key={product.id} product={product.value}/>
             </div>
         ))}
         </div>
