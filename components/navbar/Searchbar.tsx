@@ -69,7 +69,7 @@ export default function SearchBar() {
             onBlur={()=>setShowResult(false)}
             type="text"
             placeholder="What are you looking for today ?"
-            className="w-[32vw] p-3 px-10 shadow-md rounded-full focus:outline-none "  />
+            className="w-[32vw] text-black p-3 px-10 shadow-md rounded-full focus:outline-none "  />
          
           {isSearching && (
             <div className="absolute right-8 animate-spin">
