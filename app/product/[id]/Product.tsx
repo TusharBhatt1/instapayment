@@ -28,6 +28,7 @@ export default function Product({ id }: { id: number }) {
   };
 
   const getData = (id: number) => {
+    //@ts-ignore
     const cachedItem = cache.find((item) => item.key === `${id}`);
 
     if (cachedItem) {
