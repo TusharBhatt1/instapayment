@@ -56,7 +56,7 @@ export default function SearchBar() {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col text-black">
       <div className="max-w-md mx-auto relative">
         <div className=" flex justify-center items-center">
           <div className="absolute left-3">
@@ -69,7 +69,7 @@ export default function SearchBar() {
             onBlur={()=>setShowResult(false)}
             type="text"
             placeholder="What are you looking for today ?"
-            className="w-[32vw] text-black p-3 px-10 shadow-md rounded-full focus:outline-none "  />
+            className="w-[32vw] p-3 px-10 shadow-md rounded-full focus:outline-none "  />
          
           {isSearching && (
             <div className="absolute right-8 animate-spin">
@@ -78,7 +78,7 @@ export default function SearchBar() {
           )}
            {showResult && (
             <div className="absolute  right-2 hover:bg-slate-100 rounded-full cursor-pointer">
-              <AiOutlineClose className="text-black" size={22} onClick={handleCloseSearch} />
+              <AiOutlineClose  size={22} onClick={handleCloseSearch} />
             </div>
           )}
           
