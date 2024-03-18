@@ -14,21 +14,17 @@ const useLRU = create<LRUStore>((set) => ({
   cache: [],
   setItem: (id, value) =>
     set((state) => {
-      const existingIndex = state.cache.findIndex((c) => c.id == id);
+      const existingIndex = state.cache.findIndex((c) => c.id === id);
       if (existingIndex !== -1) {
-        const updatedCache = [
-          { id, value },
-          ...state.cache.slice(0, existingIndex),
-          ...state.cache.slice(existingIndex + 1),
-        ];
-        return { cache: updatedCache };
+        const item = state.cache.splice(existingIndex, 1)[0];
+        state.cache.unshift(item);
       } else if (state.cache.length >= 5) {
-        const updatedCache = [{ id, value },...state.cache.slice(0, 4)];
-        return { cache: updatedCache };
+        state.cache.pop();
+        state.cache.unshift({ id, value });
       } else {
-        const updatedCache = [{ id, value }, ...state.cache];
-        return { cache: updatedCache };
+        state.cache.unshift({ id, value });
       }
+      return { cache: [...state.cache] };
     }),
 }));
 
