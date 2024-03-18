@@ -29,10 +29,19 @@ export default function SearchBar() {
     );
   };
 
+  const myDebounce=(cb:any)=>{
+    let timer:any
+    return function(e:React.ChangeEvent<HTMLInputElement>){
+     if(timer) clearTimeout(timer)
+     let input=e.target.value
+     console.log("input is "+ input)
+     setQuery(input)
+     timer= setTimeout(()=>{cb(input)},1000)
+    }
+  }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let input = e.target.value;
-    setQuery(input)
+  const handleChange = (input:string) => {
+
     if(input==="") {
       setFilteredResults(allProducts)
       return
@@ -54,7 +63,7 @@ export default function SearchBar() {
     setShowResult(false)
     setQuery("")
   }
-
+const handleChangebetter=myDebounce(handleChange)
   return (
     <div className="flex flex-col text-black">
       <div className="max-w-md mx-auto relative">
@@ -64,7 +73,7 @@ export default function SearchBar() {
           </div>
           <input
             onFocus={() => setShowResult(true)}
-            onChange={handleChange}
+            onChange={handleChangebetter}
             value={query}
             type="text"
             placeholder="What are you looking for today ?"
