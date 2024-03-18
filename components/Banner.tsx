@@ -5,7 +5,7 @@ const Banner = () => {
   const { isOpen } = useIntro();
   if (!isOpen) {
     return (
-      <div className="relative bg-gray-100 z-0 ">
+      <div className="relative bg-gray-100 z-0">
         <Image
           height={2000}
           width={2000}

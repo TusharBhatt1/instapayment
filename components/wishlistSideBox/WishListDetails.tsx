@@ -46,8 +46,8 @@ export default function WishListDetails({
   return (
     <div className="w-[80vw] md:w-[28vw] flex flex-col gap-3">
       <div className="flex justify-between px-1 items-center">
-      <p className="text-lg">All Wishlists</p>
-      <Link href={"/wishlist"} className="hidden md:block text-xs font-bold text-blue-500">View All</Link>
+      <p className="text-xl">All Wishlists</p>
+      <Link href={"/wishlist"} className="hidden md:block text-xs font-bold text-blue-700">View All</Link>
       </div>
       <div className="border border-slate-300 rounded-md">
         <div>
@@ -104,7 +104,7 @@ export default function WishListDetails({
         </div>
         <div
           onClick={() => wishListModal.onOpen()}
-          className="cursor-pointer p-4 font-bold border-t border-slate-300 flex items-center gap-3 text-md"
+          className="text-blue-600 cursor-pointer p-4 font-bold border-t border-slate-300 flex items-center gap-3 text-md"
         >
           <FaCirclePlus size={22} />
           <span>Create Wishlist</span>{" "}

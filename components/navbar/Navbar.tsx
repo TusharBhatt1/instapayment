@@ -21,42 +21,44 @@ export default function Navbar({
 }) {
   const { addRandomCart, cart } = useCartDetails();
 
-
   useEffect(() => {
     addRandomCart(randomCart);
-    setAllProducts(allProductss.slice(0,8))
-  
+    setAllProducts(allProductss.slice(0, 8));
   }, []);
   const cartModal = useCartModal();
-  const {setAllProducts}=useAllProducts()
+  const { setAllProducts } = useAllProducts();
 
   const categories = ["Men", "Women", "Kids"];
 
   return (
     <div className="flex flex-col gap-2 z-40 ">
-  
       <div className="fixed w-full bg-black text-white flex justify-between sm:justify-around items-center p-4 border-b z-50 border-slate-100">
-       
-          <Link className="flex items-center gap-3" href={"/"}>
-            <Image  priority src={logo} height={40} width={40} alt="logo" />
-            <span className="hidden md:block font-extrabold text-2xl">unbox</span>
-          </Link>
-  
+        <Link className="flex items-center gap-3" href={"/"}>
+          <Image priority src={logo} height={40} width={40} alt="logo" />
+          <span className="hidden md:block font-extrabold text-2xl">unbox</span>
+        </Link>
+
         <div className="hidden md:flex justify-center items-center gap-7">
           {categories.map((ctg) => (
-            <span key={ctg} className="hover:border-b border-black cursor-pointer p-1">
+            <span
+              key={ctg}
+              className="hover:border-b border-black p-1"
+            >
               {ctg}
             </span>
           ))}
         </div>
         <div className="hidden md:block">
-        <Searchbar/>
+          <Searchbar />
         </div>
         <div className="flex justify-center items-center gap-7">
           <Link href={"/wishlist"}>
             <CiHeart size={28} />
           </Link>
-          <div className="flex items-center cursor-pointer" onClick={cartModal.onOpen}>
+          <div
+            className="flex items-center cursor-pointer"
+            onClick={cartModal.onOpen}
+          >
             <div>
               <GiShoppingCart size={28} />
             </div>
@@ -66,16 +68,12 @@ export default function Navbar({
           </div>
         </div>
       </div>
-      <div className="flex justify-evenly pt-24 items-center mb-8 default">
+      <div className="flex gap-2 pt-24 mb-4 justify-evenly flex-wrap px-2 sm:px-0">
         {icons.map((i, index) => (
-          <Image
-            key={index}
-            className="cursor-pointer"
-            src={i}
-            alt="icon"
-            height={55}
-            width={55}
-          />
+          <div className="flex flex-col justify-center items-center gap-2 " key={index}>
+            <Image src={i.image} alt="icon" height={55} width={55} />
+            <span className="text-xs font-bold">{i.label}</span>
+          </div>
         ))}
       </div>
     </div>
