@@ -25,7 +25,7 @@ const ProductDetails = ({ details }: { details: ProductType }) => {
           alt=""
           className="w-full h-1/3 aspect-square object-contain rounded-xl"
         />
-        <div className="flex flex-row justify-around h-24">
+        <div className="flex flex-row justify-center gap-5 h-24">
           {images.map((img) => (
             <Image
               key={img}

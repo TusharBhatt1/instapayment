@@ -32,7 +32,6 @@ export default function SearchBar() {
     return function (e: React.ChangeEvent<HTMLInputElement>) {
       if (timer) clearTimeout(timer);
       let input = e.target.value;
-      console.log("input is " + input);
       timer = setTimeout(() => {
         cb(input);
       }, 1000);
@@ -42,6 +41,7 @@ export default function SearchBar() {
   const handleChange = (input: string) => {
     if (input === "") {
       setFilteredResults(allProducts);
+      setShowResult(false)
       return;
     }
     if (alreadysearched.includes(input.replaceAll(" ", ""))) {
@@ -73,9 +73,8 @@ export default function SearchBar() {
             <AiOutlineSearch size={20} />
           </div>
           <input
-            // onFocus={() => setShowResult(true)}
+            onFocus={() => setShowResult(true)}
             onChange={handleChangebetter}
-            // value={query}
             type="text"
             placeholder="What are you looking for today ?"
             className="w-[32vw] p-3 px-10 shadow-md rounded-full focus:outline-none "
