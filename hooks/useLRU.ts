@@ -23,7 +23,7 @@ const useLRU = create<LRUStore>((set) => ({
         ];
         return { cache: updatedCache };
       } else if (state.cache.length >= 5) {
-        const updatedCache = [...state.cache.slice(0, 4), { id, value }];
+        const updatedCache = [{ id, value },...state.cache.slice(0, 4)];
         return { cache: updatedCache };
       } else {
         const updatedCache = [{ id, value }, ...state.cache];
