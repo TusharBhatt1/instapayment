@@ -57,7 +57,7 @@ export default function PricingDetails({
           onClick={() => {
             if (coupon === 0) {
               toast.success("Coupon Applied");
-              setCoupon(cartPrice/2);
+              setCoupon(-cartPrice/2);
             } else setCoupon(0);
           }}
           className={`${
