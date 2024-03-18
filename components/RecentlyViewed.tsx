@@ -24,12 +24,12 @@ export default function RecentlyViewed() {
     ? cache.filter((cacheItem) => cacheItem.id !== recentCacheId)
     : cache;
 
-  if (cache.length > 0) {
+  if (displayedCache.length > 0) {
     return (
       <div className="flex flex-col gap-4 px-12 mb-7">
         <Heading title="Recently Viewed" />
         <div className="flex items-center flex-wrap gap-12">
-          {cache.map((product) => (
+          {displayedCache.map((product) => (
             <div key={product.id}>
               <ProductCard product={product.value} />
             </div>
@@ -37,5 +37,5 @@ export default function RecentlyViewed() {
         </div>
       </div>
     );
-  } 
+  }
 }
