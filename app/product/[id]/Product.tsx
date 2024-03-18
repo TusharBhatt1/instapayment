@@ -33,7 +33,7 @@ export default function Product({ id }: { id: number }) {
 
     if (cachedItem) {
       setDetails(cachedItem.value);
-
+      console.log("from cache")
       return;
     } else fetchData(id);
   };
