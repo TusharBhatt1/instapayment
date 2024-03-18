@@ -66,7 +66,6 @@ export default function SearchBar() {
             onFocus={() => setShowResult(true)}
             onChange={handleChange}
             value={query}
-            onBlur={()=>setShowResult(false)}
             type="text"
             placeholder="What are you looking for today ?"
             className="w-[32vw] p-3 px-10 shadow-md rounded-full focus:outline-none "  />
