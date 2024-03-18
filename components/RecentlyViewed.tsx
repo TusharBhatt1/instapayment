@@ -29,7 +29,7 @@ export default function RecentlyViewed() {
       <div className="flex flex-col gap-4 px-12 mb-7">
         <Heading title="Recently Viewed" />
         <div className="flex items-center flex-wrap gap-12">
-          {displayedCache.map((product) => (
+          {cache.map((product) => (
             <div key={product.id}>
               <ProductCard product={product.value} />
             </div>
