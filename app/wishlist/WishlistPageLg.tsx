@@ -41,7 +41,7 @@ export default function WishlistPageLg() {
   }
 
   return (
-    <div className="flex p-4 w-[100vw] justify-center items-center">
+    <div className="flex p-4 w-[100vw] justify-center items-center min-h-[40vh]">
       <div className="py-4 flex flex-col gap-4 w-1/2">
         {all_wishlists.length === 0 && selectedWishlist==="" ? (
           <div className="flex flex-col">
