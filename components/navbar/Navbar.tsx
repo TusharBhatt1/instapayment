@@ -42,7 +42,7 @@ export default function Navbar({
           {categories.map((ctg) => (
             <span
               key={ctg}
-              className="hover:border-b border-black p-1"
+              className="p-1"
             >
               {ctg}
             </span>
