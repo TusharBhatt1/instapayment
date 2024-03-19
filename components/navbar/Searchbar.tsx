@@ -52,7 +52,7 @@ export default function SearchBar() {
       input = input.replaceAll(" ", "");
       filterResult(input);
       setIsSearching(true);
-      setTimeout(() => setIsSearching(false), 1000);
+      setTimeout(() => setIsSearching(false), 300);
     } else setIsSearching(false);
   };
 
