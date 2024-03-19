@@ -44,7 +44,7 @@ export default function Product({ id }: { id: number }) {
 
   if (!details) {
     return (
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center h-[50vh]">
         <div className="animate-pulse flex flex-col items-center gap-4 w-60">
           <div>
             <div className="w-48 h-6 bg-slate-400 rounded-md"></div>
