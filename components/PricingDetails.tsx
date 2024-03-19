@@ -95,7 +95,6 @@ export default function PricingDetails({
         <div>
           <span className="text-sm font-bold text-slate-500">
             Pricing Details
-            {`${cartLength > 1 ? "items" : "item"}`}
           </span>
           <div className="flex flex-col">
             {pricingDetails.map((pr, index) => (

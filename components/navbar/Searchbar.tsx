@@ -41,7 +41,6 @@ export default function SearchBar() {
   const handleChange = (input: string) => {
     if (input === "") {
       setFilteredResults(allProducts);
-      setShowResult(false)
       return;
     }
     if (alreadysearched.includes(input.replaceAll(" ", ""))) {
