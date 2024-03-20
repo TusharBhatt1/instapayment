@@ -69,7 +69,11 @@ export default function CartModal() {
 
   const onSubmit = () => {
     if (cart.length === 0) router.push("/");
-    else router.push("/cart");
+    
+    else {
+      toast.success("Taking you there")
+      router.push("/cart")
+    }
     onClose();
   };
   return (
