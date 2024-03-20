@@ -69,7 +69,11 @@ export default function AddToWishlistModal() {
     <Modal
       isOpen={addToWishlistModal.isOpen}
       onSubmit={onCreateNew}
-      onClose={addToWishlistModal.onClose}
+      onClose={()=>{
+        addToWishlistModal.onClose()
+      //@ts-ignore
+        addToWishlistModal.setProduct("")
+      }}
       actionLabel="Create New"
       title="Select Wishlist"
       body={body}

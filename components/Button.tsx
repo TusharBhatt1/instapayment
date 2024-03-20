@@ -27,7 +27,7 @@ const Button: React.FC<ButtonProps> = ({
   const handleClick = () => {
     if (onClick) {
       setClicked(true);
-      setTimeout(() => setClicked(false), 1000);
+      setTimeout(() => setClicked(false), 500);
       onClick();
     }
   };
